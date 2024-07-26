@@ -24,10 +24,10 @@ fraction_to_keep = 0.13 # 0.025 for electrical devices
 batch_size = 32
 
 model_name = "foreign_objects_1"
-log_file = "DenseNet/model/Log_Files/log_file_1.txt"
+log_file = "DenseNet/model/Trained_Models/log_file_1.txt"
 labels_file = "DenseNet/model/PADCHEST_chest_x_ray_images_labels_160K_01.02.19.csv"
 images_folder = "DenseNet/Images_Test"
-classified_images_csv = "DenseNet/model/generated_csv_files/classify_images.csv"
+classified_images_csv = "DenseNet/model/classify_images.csv"
 
 classified_images_df = classify_images.check_if_classified_images_csv_exists(classified_images_csv, labels_file)
     

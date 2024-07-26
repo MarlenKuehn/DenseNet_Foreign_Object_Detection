@@ -77,7 +77,7 @@ def train(model, criterion, optimizer, train_loader, num_epochs, device, model_n
         logger.info(f" -  TP: {tp}, FP: {fp}, FN: {fn}, TN: {tn}")  
         logger.info(f" -  Total: {tp + fp + fn + tn}, Correct: {tp + tn}, Wrong: {fp + fn}\n")  
 
-        checkpoint_filepath = f'DenseNet/Checkpoints/{model_name}_epoch_{epoch+1:02d}.pth'
+        checkpoint_filepath = f'DenseNet/model/Trained_Models/{model_name}_epoch_{epoch+1:02d}.pth'
         save_checkpoint(epoch, model, optimizer, epoch_loss, checkpoint_filepath)
     logger.info("Training finished and model saved.")
     logger.info("----------------------------------------------------------------------------------- ")

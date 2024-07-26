@@ -1,0 +1,66 @@
+----------------------------------------------------------------------------------- 
+Model: DenseNet169 // Epochs: 3
+Split Ratio: 0.8 // Learning Rate: 0.0001 // Batch Size: 32 // Fraction of neg. Samples: 0.13
+----------------------------------------------------------------------------------- 
+Training Dataset: Total samples (29539), positive samples (14736), negative samples (14803)
+Testing Dataset: Total samples (32152), positive samples (3689), negative samples (28463)
+----------------------------------------------------------------------------------- 
+Training started...
+ -  Epoch 1/3: Loss: 0.3617, Accuracy: 86.22%, Precision: 0.90, Recall: 0.82, F1-Score: 0.86
+ -  TP: 12042, FP: 1382, FN: 2688, TN: 13416
+ -  Total: 29528, Correct: 25458, Wrong: 4070
+
+ -  Epoch 2/3: Loss: 0.3036, Accuracy: 88.74%, Precision: 0.91, Recall: 0.86, F1-Score: 0.88
+ -  TP: 12614, FP: 1210, FN: 2116, TN: 13588
+ -  Total: 29528, Correct: 26202, Wrong: 3326
+
+ -  Epoch 3/3: Loss: 0.2782, Accuracy: 89.74%, Precision: 0.92, Recall: 0.87, F1-Score: 0.89
+ -  TP: 12819, FP: 1120, FN: 1911, TN: 13678
+ -  Total: 29528, Correct: 26497, Wrong: 3031
+
+Training finished and model saved.
+----------------------------------------------------------------------------------- 
+Evaluation started...
+ -  Loss: 0.2417, Accuracy: 0.9293, Precision: 0.6420, Recall: 0.8666, F1-Score: 0.7375
+ -  AUC: 0.9491
+ -  TP: 3195, FP: 1782, FN: 492, TN: 26676
+ -  Total: 32145, Correct: 29871, Wrong: 2274
+Detailed object category results:
+
+                                    object_name  total_amount  correct
+0                             tracheostomy tube           370      363
+1                             endotracheal tube           483      475
+2                                      NSG tube          1070     1026
+3                              chest drain tube           133       95
+4               ventriculoperitoneal drain tube             8        3
+5                              gastrostomy tube             1        0
+6                              nephrostomy tube             0        0
+7                                double J stent             2        1
+8                                      catheter          1181     1114
+9                       central venous catheter          1167     1107
+10  central venous catheter via subclavian vein           323      296
+11     central venous catheter via jugular vein           683      675
+12            reservoir central venous catheter            86       73
+13   central venous catheter via umbilical vein            30       30
+14                            electrical device             6        4
+15                          dual chamber device           276      275
+16                        single chamber device           157      157
+17                                    pacemaker           717      715
+18                                          dai            71       67
+19                       artificial heart valve           153      152
+20                artificial mitral heart valve           109      103
+21                artificial aortic heart valve            75       71
+22                                        metal           362      256
+23                      osteosynthesis material           139       93
+24                                   sternotomy           581      563
+25                              suture material           443      296
+26                                  bone cement             2        0
+27                                   prosthesis           174      106
+28                           humeral prosthesis            36       34
+29                           mammary prosthesis           111       58
+30                               endoprosthesis            20        8
+31                        aortic endoprosthesis            11        5
+32                        abnormal foreign body            14        5
+33                        external foreign body             8        2
+Evaluation finished.
+----------------------------------------------------------------------------------- 

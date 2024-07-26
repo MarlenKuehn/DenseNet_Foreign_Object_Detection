@@ -1,0 +1,74 @@
+----------------------------------------------------------------------------------- 
+Model: DenseNet201 // Epochs: 5
+Split Ratio: 0.8 // Learning Rate: 0.0001 // Batch Size: 32 // Fraction of neg. Samples: 0.13
+----------------------------------------------------------------------------------- 
+Training Dataset: Total samples (29499), positive samples (14690), negative samples (14809)
+Testing Dataset: Total samples (32152), positive samples (3735), negative samples (28417)
+----------------------------------------------------------------------------------- 
+Training started...
+ -  Epoch 1/5: Loss: 0.3554, Accuracy: 86.58%, Precision: 0.89, Recall: 0.83, F1-Score: 0.86
+ -  TP: 12158, FP: 1432, FN: 2525, TN: 13376
+ -  Total: 29491, Correct: 25534, Wrong: 3957
+
+ -  Epoch 2/5: Loss: 0.2988, Accuracy: 89.18%, Precision: 0.91, Recall: 0.86, F1-Score: 0.89
+ -  TP: 12674, FP: 1183, FN: 2009, TN: 13625
+ -  Total: 29491, Correct: 26299, Wrong: 3192
+
+ -  Epoch 3/5: Loss: 0.2758, Accuracy: 90.11%, Precision: 0.92, Recall: 0.88, F1-Score: 0.90
+ -  TP: 12863, FP: 1098, FN: 1820, TN: 13710
+ -  Total: 29491, Correct: 26573, Wrong: 2918
+
+ -  Epoch 4/5: Loss: 0.2608, Accuracy: 90.69%, Precision: 0.93, Recall: 0.88, F1-Score: 0.90
+ -  TP: 12978, FP: 1041, FN: 1705, TN: 13767
+ -  Total: 29491, Correct: 26745, Wrong: 2746
+
+ -  Epoch 5/5: Loss: 0.2487, Accuracy: 91.25%, Precision: 0.93, Recall: 0.89, F1-Score: 0.91
+ -  TP: 13066, FP: 963, FN: 1617, TN: 13845
+ -  Total: 29491, Correct: 26911, Wrong: 2580
+
+Training finished and model saved.
+----------------------------------------------------------------------------------- 
+Evaluation started...
+ -  Loss: 0.2093, Accuracy: 0.9428, Precision: 0.7274, Recall: 0.8112, F1-Score: 0.7670
+ -  AUC: 0.9516
+ -  TP: 3029, FP: 1135, FN: 705, TN: 27276
+ -  Total: 32145, Correct: 30305, Wrong: 1840
+Detailed object category results:
+
+                                    object_name  total_amount  correct
+0                             tracheostomy tube           348      344
+1                             endotracheal tube           488      468
+2                                      NSG tube          1057      951
+3                              chest drain tube           146       90
+4               ventriculoperitoneal drain tube             7        1
+5                              gastrostomy tube             2        2
+6                              nephrostomy tube             1        0
+7                                double J stent             5        1
+8                                      catheter          1223     1064
+9                       central venous catheter          1208     1057
+10  central venous catheter via subclavian vein           356      303
+11     central venous catheter via jugular vein           636      606
+12            reservoir central venous catheter           118       71
+13   central venous catheter via umbilical vein            39       35
+14                            electrical device            12        6
+15                          dual chamber device           289      289
+16                        single chamber device           133      132
+17                                    pacemaker           714      711
+18                                          dai            65       61
+19                       artificial heart valve           138      136
+20                artificial mitral heart valve            78       75
+21                artificial aortic heart valve            60       58
+22                                        metal           347      232
+23                      osteosynthesis material           138       88
+24                                   sternotomy           574      548
+25                              suture material           454      286
+26                                  bone cement             1        0
+27                                   prosthesis           160       67
+28                           humeral prosthesis            28       23
+29                           mammary prosthesis           107       33
+30                               endoprosthesis            22        9
+31                        aortic endoprosthesis             9        5
+32                        abnormal foreign body            17        6
+33                        external foreign body             8        1
+Evaluation finished.
+----------------------------------------------------------------------------------- 

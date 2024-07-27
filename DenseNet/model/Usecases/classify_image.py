@@ -6,8 +6,8 @@ from PIL import Image
 from collections import OrderedDict
 import numpy as np
 
-path_to_model = 'DenseNet/Trained_Models/Training_1_elec_dev.pth'
-path_to_image = 'Images/0/47784381729225956156725553701446715500_sgkre8.png'
+path_to_model = 'DenseNet/model/Trained_Models/Training_A.pth'
+path_to_image = 'DenseNet/Images/0/47784381729225956156725553701446715500_sgkre8.png'
 
 chosen_model = "DenseNet201"  # "DenseNet201" or "DenseNet169"
 

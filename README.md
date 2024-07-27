@@ -11,7 +11,14 @@ This framework uses a DenseNet architecture to detect Foreign Objects in chest x
 
 1. In order to be able to run the framework you need a Python environment. The used Python version for the implementation was 3.11.4. If necessary install Python from https://www.python.org/downloads/.
 
-2. Make sure you have all the necessary libraries installed. You can install them by running the following command:
+3. Run the following command to clone this repository and load it into a local folder directory: 
+   
+```
+git clone https://github.com/MarlenKuehn/DenseNet_Foreign_Object_Detection.git
+``` 
+
+
+4. Make sure you have all the necessary libraries installed. You can install them by running the following command:
 
 ```
 pip install -r requirements.txt
@@ -30,11 +37,9 @@ pip install torch==2.3.0
 pip install torchvision==0.18.0
 ```
 
-3. Clone this repository: ```git clone https://github.com/MarlenKuehn/DenseNet_Foreign_Object_Detection.git``` and load it into a local folder directory.
-
 4. To download the PadChest dataset go to https://bimcv.cipf.es/bimcv-projects/padchest/ and click on 'Download complete dataset'. You need to fill out the form and agree to the terms of use. After that you will recieve the link to the download page of the dataset. Download the folders 1-50 and 54. Keep the original folder structure and names as it is, unzip them and load them into this repository inside a folder called Images in the directory DenseNet/Images/. 
    
-5. To verify that the dataset is correctly loaded you can use the 'Verify_Zips_ImageCounts.csv.xlsx' from the download page. It contains the number of images in each file. 
+5. In order to verify that the dataset is correctly loaded you can use the 'Verify_Zips_ImageCounts.csv.xlsx' from the download page. It contains the number of images in each file. 
 
 6. Download from the same page the file 'PADCHEST_chest_x_ray_images_labels_160K_01.02.19.csv', it contains the original labels for the images. Put it into the directory 'DenseNet/model/PADCHEST_chest_x_ray_images_labels_160K_01.02.19.csv'.
    

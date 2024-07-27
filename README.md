@@ -11,14 +11,14 @@ This framework uses a DenseNet architecture to detect Foreign Objects in chest x
 
 1. In order to be able to run the framework you need a Python environment. The used Python version for the implementation was 3.11.4. If necessary install Python from https://www.python.org/downloads/.
 
-3. Run the following command to clone this repository and load it into a local folder directory: 
+2. Run the following command to clone this repository and load it into a local folder directory: 
    
 ```
 git clone https://github.com/MarlenKuehn/DenseNet_Foreign_Object_Detection.git
 ``` 
 
 
-4. Make sure you have all the necessary libraries installed. You can install them by running the following command:
+3. Make sure you have all the necessary libraries installed. You can install them by running the following command:
 
 ```
 pip install -r requirements.txt
@@ -41,11 +41,11 @@ pip install torchvision==0.18.0
    
 5. In order to verify that the dataset is correctly loaded you can use the 'Verify_Zips_ImageCounts.csv.xlsx' from the download page. It contains the number of images in each file. 
 
-6. Download from the same page the file 'PADCHEST_chest_x_ray_images_labels_160K_01.02.19.csv', it contains the original labels for the images. Put it into the directory 'DenseNet/model/PADCHEST_chest_x_ray_images_labels_160K_01.02.19.csv'.
+6. Download from the same page the file 'PADCHEST_chest_x_ray_images_labels_160K_01.02.19.csv', it contains the original labels for the images. Put it into the directory 'DenseNet/model/'.
    
-7. To access the pretained models go to https://drive.google.com/drive/folders/18dPp1yi6RvYIGMRyjZoqxCColMbDsWM9?usp=sharing, download the files 'Training_A.pth', 'Training_B.pth' and 'Training_C.pth' or just the model of your choice and put them into the directory 'DenseNet/model/Trained_Models/'.
+7. To access the pretained models go to https://drive.google.com/drive/folders/18dPp1yi6RvYIGMRyjZoqxCColMbDsWM9?usp=sharing, download the files 'Training_A.pth', 'Training_B.pth' and 'Training_C.pth' and put them into the directory 'DenseNet/model/Trained_Models/'.
 
-8. Now you should be able to run main.py. The first time you run it, it will generate the classify_images.csv file, which classifies the images into the classes 1 for containing a foreign object and 0 for not containing a foreign object.
+8. Now you should be able to run main.py. The first time you let it run, it will generate the classify_images.csv file, which classifies the images into the classes 1 for containing a foreign object and 0 for not containing a foreign object.
    
 ## Further Uscases
 

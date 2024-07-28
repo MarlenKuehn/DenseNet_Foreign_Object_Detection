@@ -1,5 +1,5 @@
 ________________________________________________________________________________________
-Training 1
+Training A
 Model:  DenseNet201 // Classification Mode:  binary // Epochs:  3 //
 Split Ratio: 0.8 // Learning Rate: 0.0001 // 
 Batch Size:  32 // Fraction of neg. Samples: 0.025

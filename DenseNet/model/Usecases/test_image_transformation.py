@@ -8,23 +8,10 @@ import torchvision
 import torch
 
 # Load an image
-
-# Check the shape of the image
-#print("Image shape:", img.shape)
-
-# Display the image with the correct colormap for grayscale
-image = Image.open('Images/0/47784381729225956156725553701446715500_sgkre8.png')
-
-#image.show()
-
-#bad
-
-arr = np.array(Image.open("Images/0/7229642368407186565500544115495475569_ja0kjg.png"))
+arr = np.array(Image.open("DenseNet/Images/0/7229642368407186565500544115495475569_ja0kjg.png"))
 arr = (arr - arr.min()) * 255 // (arr.max() - arr.min() + 1e-10)
 img = Image.fromarray(arr.astype("uint8"))
 img.show()
-
-#good
 
 
 normMean = [0.49139968]

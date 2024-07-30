@@ -1,9 +1,9 @@
 import os
 import logging
 
-
+# Set up the logger
 def setup_logging(log_file_path):
-    # Ensure the directory exists
+    # Create the directory for the log file
     os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
     
     # Create a logger

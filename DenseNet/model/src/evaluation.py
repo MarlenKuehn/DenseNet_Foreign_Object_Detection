@@ -7,23 +7,24 @@ import matplotlib.pyplot as plt
 import main
 import classify_images
 
-
+# Generates a DataFrame with counters for each foreign object 
+# to evaluate the performance depending on the object type
 def object_categories_initialization():
     object_categories = classify_images.get_foreign_objects()
     data = []
 
     # Loop through each object in the list
     for obj in object_categories:
-        # Create a dictionary for each object with 'object_name', 'total_amount', and 'correct' fields
+        # Create a dictionary for each object 
         obj_data = {
             'object_name': obj,
-            'total_amount': 0,  # Initialize total amount as 0
-            'correct': 0        # Initialize correct amount as 0
+            'total_amount': 0,  
+            'correct': 0        
         }
         # Append the dictionary to the data list
         data.append(obj_data)
 
-    # Create a DataFrame from the data list
+    # Create a DataFrame from the data list and return it
     objects_df = pd.DataFrame(data)
     return objects_df
     
@@ -37,48 +38,62 @@ def evaluate_object_categories(labels, preds, img_name, objects_df, main_df):
         return
     
     for i in range(len(labels)):
+        # For each image labelled as containing a foreign object update counters
         if labels[i] == 1:
             obj_list = main_df.loc[main_df['filename'] == img_name[i], 'contained_foreign_objects'].values[0]
             obj_list = ast.literal_eval(obj_list)
             
             for obj in obj_list:
-                #print("Objects DF: ", objects_df[obj])
                 if preds[i] == 1:
+                    # If the prediction is correct, update the correct counter and the total amount counter
                     objects_df.loc[objects_df['object_name'] == obj, ['total_amount', 'correct']] += 1
                 else:
+                    # If the prediction is wrong, update only the total amount counter
                     objects_df.loc[objects_df['object_name'] == obj, 'total_amount'] += 1
     return objects_df
 
-
+# Evaluate the model
 def evaluate(model, criterion, test_loader, device, logger):
     logger.info("Evaluation started...")
-    model.eval()
+    # Set the model to evaluation mode
+    model.eval() 
+    
     running_loss = 0.0
     processed_data = 0
     all_labels = []
     all_preds = []
     all_probs = []
     amt_images = len(test_loader.dataset)
+    # Initialize the object categories DataFrame
     objects_df = object_categories_initialization()
+    
+    # Get the DataFrame with the classified images in order to get the labels
     main_df = get_main_df()
     
+    # Process the test data in batches
     with torch.no_grad():
         for inputs, labels, img_name in test_loader:
             
             inputs = inputs.to(device)
             labels = labels.to(device).float().view(-1, 1)
-
+            
+            # Generate probabilities for the images
             outputs = model(inputs)
             
+            # Calculate the loss based on the probabilities 
             loss = criterion(outputs, labels)
             probs = torch.sigmoid(outputs)
 
             # Convert probabilities to binary predictions
             preds = (probs > 0.6).int() 
+            
+            # Add the results to the object categories DataFrame and update its counters
             objects_df = evaluate_object_categories(labels, preds, img_name, objects_df, main_df)
             
+            # Calculate the loss of the batch
             loss = loss.item()
             
+            # Calculate the total loss so far and the number of processed images
             running_loss += loss * inputs.size(0)
             processed_data += inputs.size(0)
             
@@ -104,6 +119,7 @@ def evaluate(model, criterion, test_loader, device, logger):
     logger.info("Evaluation finished.")
     logger.info("----------------------------------------------------------------------------------- ")
     
+    # Plot the ROC curve
     plt.figure()
     plt.plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (area = {auc:.2f})')
     plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
